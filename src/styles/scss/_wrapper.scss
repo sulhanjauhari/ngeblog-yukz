@@ -1,0 +1,24 @@
+.header-page-wrapper {
+  &::after {
+    background: var(--border-color);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      var(--border-color) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      var(--border-color) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      var(--border-color) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+  }
+}
