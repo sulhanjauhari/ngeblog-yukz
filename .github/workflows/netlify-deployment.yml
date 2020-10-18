@@ -21,7 +21,7 @@ jobs:
       - name: Build site
         run: |
           yarn install --production
-          yarn build --if-present
+          yarn build
 
       - name: Deploy to netlify
         uses: nwtgck/actions-netlify@v1.1.11
