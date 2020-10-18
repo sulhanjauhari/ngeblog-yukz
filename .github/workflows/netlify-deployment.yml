@@ -3,7 +3,7 @@ name: Netlify Deployment
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   deploy:
@@ -12,12 +12,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
         with:
           version: 12.x
-      
+
       - name: Build site
         run: |
           yarn install --production
@@ -29,6 +29,6 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_APP_ID }}
         with:
-          publish-dir: './public'
-          production-branch: master
-          deploy-message: '${{ github.event.head_commit.message }}'
+          publish-dir: "./public"
+          production-branch: develop
+          deploy-message: "${{ github.event.head_commit.message }}"
