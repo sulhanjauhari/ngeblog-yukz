@@ -8,8 +8,8 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi guys</h1>
-    <p>Welcome to my static web :)</p>
+    <h1>Hi guys!!!</h1>
+    <p>Welcome to my static web :(</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
