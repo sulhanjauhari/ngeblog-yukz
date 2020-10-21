@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
-import Image from "../components/image";
 
 const Post: React.FC<ComponentProps> = ({ data }) => {
   const { markdownRemark: post } = data;
