@@ -1,4 +1,4 @@
-name: Netlify Deployment
+name: Build and Deploy to Netlify
 
 on:
   push:
@@ -24,11 +24,10 @@ jobs:
           yarn build
 
       - name: Deploy to netlify
-        uses: nwtgck/actions-netlify@v1.1.11
+        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_APP_ID }}
         with:
-          publish-dir: "./public"
-          production-branch: develop
-          deploy-message: "${{ github.event.head_commit.message }}"
+          args: deploy --dir=public --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
