@@ -63,7 +63,7 @@ const Homepage: React.FC<ComponentProps> = ({ data }) => {
         {posts.map(({ node }) => (
           <Card key={node.id} flat>
             <div>
-              <span className="text-uppercase">{node.frontmatter.date}</span>
+              <span className="text-uppercase">{node.frontmatter.date} | </span>
               <Link to={`/tag/${node.frontmatter.tags[0]}`}>
                 {node.frontmatter.tags[0]}
               </Link>
