@@ -7,7 +7,7 @@ on:
     paths:
       - "src/**"
       - "gatsby-*.js"
-      - ".env"
+      - ".env.development"
 
 jobs:
   deploy:
