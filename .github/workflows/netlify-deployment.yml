@@ -5,6 +5,7 @@ on:
     branches:
       - develop
     paths:
+      - ".github/workflows/netlify-deployment.yml"
       - "src/**"
       - "gatsby-*.js"
       - ".env.development"
