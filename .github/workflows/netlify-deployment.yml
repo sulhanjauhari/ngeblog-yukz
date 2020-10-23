@@ -23,6 +23,9 @@ jobs:
           node-version: 12.x
 
       - name: Build site
+        env:
+          GATSBY_SITE_NAME: Sulhan Jauhary
+          GATSBY_BASE_URL: https://ngeblog-yukz.netlify.app
         run: |
           yarn install --production
           yarn build
