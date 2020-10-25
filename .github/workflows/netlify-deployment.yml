@@ -1,9 +1,14 @@
-name: Netlify Deployment
+name: Build and Deploy to Netlify
 
 on:
   push:
     branches:
-      - master
+      - develop
+    paths:
+      - ".github/workflows/netlify-deployment.yml"
+      - "src/**"
+      - "gatsby-*.js"
+      - ".env.development"
 
 jobs:
   deploy:
@@ -12,23 +17,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
         with:
-          version: 12.x
-      
+          node-version: 12.x
+
       - name: Build site
+        env:
+          GATSBY_SITE_NAME: Sulhan Jauhary
+          GATSBY_BASE_URL: https://ngeblog-yukz.netlify.app
         run: |
           yarn install --production
           yarn build
 
       - name: Deploy to netlify
-        uses: nwtgck/actions-netlify@v1.1.11
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=public -p
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_APP_ID }}
-        with:
-          publish-dir: './public'
-          production-branch: master
-          deploy-message: '${{ github.event.head_commit.message }}'

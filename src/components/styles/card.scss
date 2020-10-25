@@ -1,0 +1,9 @@
+.card {
+  box-shadow: 1px 2px 5px -2px var(--shadow-color);
+
+  &.card--flat {
+    box-shadow: unset;
+    border-radius: unset;
+    background-color: transparent;
+  }
+}

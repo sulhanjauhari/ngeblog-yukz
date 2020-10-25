@@ -1,0 +1,10 @@
+.text-muted {
+  color: var(--text-muted-color);
+  &.need {
+    color: var(--text-muted-color) !important;
+  }
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
