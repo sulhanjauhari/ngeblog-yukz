@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: process.env.GATSBY_SITE_NAME,
     baseUrl: process.env.GATSBY_BASE_URL,
-    description: `A personal blog created by Sulhan Jauhary`,
+    description: `A personal blog created by Sulhan Jauhary 🎪`,
     author: `Sulhan Jauhary`,
     lang: `id`,
     facebook: `https://www.facebook.com/sulhanjauhary`,
