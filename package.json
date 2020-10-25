@@ -43,8 +43,8 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.14.0",
     "polished": "^3.6.3",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-helmet": "6.0.0"
   },
   "devDependencies": {
