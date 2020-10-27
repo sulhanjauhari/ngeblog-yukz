@@ -50,8 +50,8 @@
   "devDependencies": {
     "@types/classnames": "2.2.10",
     "@types/react-helmet": "5.0.16",
-    "@typescript-eslint/eslint-plugin": "2.34.0",
-    "@typescript-eslint/parser": "2.34.0",
+    "@typescript-eslint/eslint-plugin": "4.6.0",
+    "@typescript-eslint/parser": "4.6.0",
     "add": "2.0.6",
     "eslint": "7.12.1",
     "eslint-config-prettier": "6.14.0",
