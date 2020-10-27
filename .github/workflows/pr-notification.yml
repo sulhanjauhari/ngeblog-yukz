@@ -1,0 +1,26 @@
+name: Pull Request Notification on Telegram
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send Notification To Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            🤖 Ada pull request bos di repository ${{ github.repository }}
+
+            ♣ ${{ github.event.pull_request.title }}
+
+            ${{ github.event.pull_request.head.ref }} >>> ${{ github.base_ref }}
