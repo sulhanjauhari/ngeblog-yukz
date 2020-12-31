@@ -10,9 +10,14 @@ const Homepage: React.FC<ComponentProps> = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   const config = data.site.siteMetadata;
   const avatarPhoto = data.profile.childImageSharp.fixed;
+  const headerProp = {
+    title: "okanjauhary",
+    subtitle: "HI, I’m Sulhan Jauhary a front-end developer 👋",
+    showBottomDivider: false,
+  };
 
   return (
-    <Layout>
+    <Layout header={headerProp}>
       <Helmet>
         <html lang={config.lang} />
         <title>{config.title}</title>

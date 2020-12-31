@@ -2,7 +2,7 @@ const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const _ = require("lodash");
 
-const POST_PER_PAGE = 4;
+const POST_PER_PAGE = 5;
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
