@@ -1,0 +1,9 @@
+.page-title {
+  font-size: var(--font-size-lumayan);
+  line-height: 2em;
+}
+
+.page-subtitle {
+  @extend .text-muted;
+  font-size: var(--font-size-sedengan);
+}

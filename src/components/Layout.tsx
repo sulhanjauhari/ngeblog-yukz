@@ -1,18 +1,21 @@
 import React from "react";
-import Header from "./Header";
+import { css } from "@emotion/core";
+import Header from "../components/Header";
+import { getTheme } from "../utils/theme";
 
-import "../styles/scss/layout.scss";
+import "../styles/scss/main.scss";
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<{ header: HeaderProps }> = ({ children, header }) => {
   return (
-    <>
-      <Header />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}>
+    <div
+      className="app-container"
+      css={css`
+        margin: auto;
+        padding: 0 1rem;
+        max-width: ${getTheme("--max-width-container")};
+      `}>
+      <Header {...header} />
+      <div>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with ❤️
@@ -20,7 +23,7 @@ const Layout: React.FC = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </div>
   );
 };
 
