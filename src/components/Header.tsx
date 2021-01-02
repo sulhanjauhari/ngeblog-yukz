@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-// import { css } from "@emotion/core";
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 
 const PageInfo = styled.div`
@@ -69,7 +69,11 @@ const socials = [
 ];
 
 const Header: React.FC<HeaderProps> = props => (
-  <div className="app-header">
+  <div
+    className="app-header"
+    css={css`
+      margin-bottom: 10px;
+    `}>
     <PageInfo>
       <h2 className="page-title">{props.title}</h2>
       {props.subtitle ? (

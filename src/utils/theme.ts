@@ -1,4 +1,4 @@
-export const getTheme = (variableName: string): string =>
+export const getTheme = (variableName: string, el?: string): string =>
   window
-    .getComputedStyle(document.documentElement)
+    .getComputedStyle(el === "root" ? document.documentElement : document.body)
     .getPropertyValue(variableName);
