@@ -55,15 +55,19 @@ const menuLists = [
 
 const socials = [
   {
-    icon: "fb",
+    icon: "my-facebook.svg",
     link: "https://facebook.com/okanjauhary",
   },
   {
-    icon: "twitter",
+    icon: "my-twitter.svg",
     link: "https://twitter.com/okanjauhary",
   },
   {
-    icon: "github",
+    icon: "my-linkedin.svg",
+    link: "https://www.linkedin.com/in/sulhanjauhari",
+  },
+  {
+    icon: "my-github.svg",
     link: "https://github.com/okanjauhary",
   },
 ];
@@ -91,8 +95,8 @@ const Header: React.FC<HeaderProps> = props => (
       <Menu>
         {socials.map((item, i) => (
           <MenuItem key={`menu-right-${i}`}>
-            <a href={item.link} rel="nofollow">
-              {item.icon}
+            <a href={item.link} rel="noreferrer" target="_blank">
+              <img src={`/icons/${item.icon}`} width="20px" height="20px" />
             </a>
           </MenuItem>
         ))}
