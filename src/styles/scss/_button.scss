@@ -1,0 +1,61 @@
+@import "utils";
+
+.my-button {
+  $this: &;
+
+  button {
+    position: relative;
+    font-size: var(--font-size-ualit);
+    height: 1.5rem;
+    width: 5rem;
+    font-weight: 500;
+    color: var(--button-color);
+    /* box-shadow: inset x y blur spread color; */
+    -webkit-box-shadow: inset 0px 0px 0px 2px var(--button-color);
+    box-shadow: inset 0px 0px 0px 2px var(--button-color);
+
+    &::before {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 100%;
+      top: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: var(--button-color);
+      transition: 0.3s ease-in-out;
+      z-index: -1;
+    }
+
+    /* Button Varian */
+    @include variant(#{$this}--medium) {
+      height: 2rem;
+      width: 7.5rem;
+      font-size: var(--font-size-alit);
+      font-weight: 600;
+    }
+
+    @include variant(#{$this}--large) {
+      height: 2.25rem;
+      width: 8rem;
+      font-size: var(--font-size-normal);
+      font-weight: 600;
+    }
+  }
+
+  &:not(#{&}--disabled) button:hover {
+    color: var(--button-color-hover);
+    &::before {
+      top: 0%;
+    }
+  }
+
+  &#{&}--disabled {
+    button {
+      color: var(--button-color-disabled);
+      cursor: not-allowed;
+      -webkit-box-shadow: inset 0px 0px 0px 2px var(--button-color-disabled);
+      box-shadow: inset 0px 0px 0px 2px var(--button-color-disabled);
+    }
+  }
+}
