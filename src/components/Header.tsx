@@ -2,6 +2,10 @@ import { Link } from "gatsby";
 import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
+import Facebook from "../components/icons/Facebook";
+import Github from "../components/icons/Github";
+import Linkedin from "../components/icons/Linkedin";
+import Twitter from "../components/icons/Twitter";
 
 const PageInfo = styled.div`
   text-align: center;
@@ -55,19 +59,19 @@ const menuLists = [
 
 const socials = [
   {
-    icon: "my-facebook.svg",
+    icon: Facebook,
     link: "https://facebook.com/okanjauhary",
   },
   {
-    icon: "my-twitter.svg",
+    icon: Twitter,
     link: "https://twitter.com/okanjauhary",
   },
   {
-    icon: "my-linkedin.svg",
+    icon: Linkedin,
     link: "https://www.linkedin.com/in/sulhanjauhari",
   },
   {
-    icon: "my-github.svg",
+    icon: Github,
     link: "https://github.com/okanjauhary",
   },
 ];
@@ -96,7 +100,7 @@ const Header: React.FC<HeaderProps> = props => (
         {socials.map((item, i) => (
           <MenuItem key={`menu-right-${i}`}>
             <a href={item.link} rel="noreferrer" target="_blank">
-              <img src={`/icons/${item.icon}`} width="20px" height="20px" />
+              <item.icon width="1rem" height="1rem" />
             </a>
           </MenuItem>
         ))}
