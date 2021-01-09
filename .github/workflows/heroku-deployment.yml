@@ -26,9 +26,28 @@ jobs:
           yarn install --production
           yarn build
 
+      - name: Send Notification To Telegram (start deploy)
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Deploying  ${{ github.repository }} to heroku
+            Branch: ${{ github.base_ref }}
+
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.8.9
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "okanjauhary"
-          heroku_email: "ms.jauhary@outlook.com"
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+
+      - name: Send Notification To Telegram (end deploy)
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Deploy  ${{ github.repository }} to heroku has been succeed
+            Branch: ${{ github.base_ref }}
+            Link: https://okanjauhary.space
