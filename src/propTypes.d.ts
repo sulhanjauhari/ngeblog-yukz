@@ -3,3 +3,8 @@ interface HeaderProps {
   title: string;
   subtitle?: string;
 }
+
+interface IconProps {
+  width?: string;
+  height?: string;
+}
