@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import { getTheme } from "../utils/theme";
@@ -39,11 +39,17 @@ const CardFooter = styled.div`
 
 const Card: React.FC<PostCardProp> = props => {
   const { createAt, tags, title, content, slug, timeToRead, author } = props;
+  const [borderColor, setBorderColor] = useState("#000");
+
+  useEffect(() => {
+    setBorderColor(getTheme("--text-color"));
+  });
+
   return (
     <PostCardWrapper>
       <PostCard
         css={css`
-          border-color: ${getTheme("--text-color")};
+          border-color: ${borderColor};
         `}>
         <CardContentSection>
           <Link to={slug}>
