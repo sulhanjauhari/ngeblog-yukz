@@ -1,6 +1,6 @@
 interface HeaderProps {
   showBottomDivider: boolean;
-  title: string;
+  title?: string;
   subtitle?: string;
 }
 
