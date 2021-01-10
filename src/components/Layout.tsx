@@ -1,7 +1,6 @@
 import React from "react";
 import { css } from "@emotion/core";
 import Header from "../components/Header";
-import { getTheme } from "../utils/theme";
 import SatirLine from "../components/partials/SatirLine";
 import { TextAlit } from "../styles/text";
 
@@ -14,7 +13,7 @@ const Layout: React.FC<{ header: HeaderProps }> = ({ children, header }) => {
       css={css`
         margin: auto;
         padding: 0 1rem;
-        max-width: ${getTheme("--max-width-container", "root")};
+        max-width: 48rem;
       `}>
       <Header {...header} />
       <main>{children}</main>
