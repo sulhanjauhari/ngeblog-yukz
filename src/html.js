@@ -12,10 +12,15 @@ const html = props => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
           rel="stylesheet"
-        /> */}
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body {...props.bodyAttributes} className="theme--light">
         {props.preBodyComponents}

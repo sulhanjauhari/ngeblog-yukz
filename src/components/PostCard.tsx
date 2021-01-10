@@ -28,7 +28,7 @@ const PostCard = styled.div`
 `;
 
 const CardContentSection = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 `;
 
 const CardFooter = styled.div`
