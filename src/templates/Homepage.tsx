@@ -2,17 +2,42 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
-import Card from "../components/Card";
+import PostCard from "../components/PostCard";
+import Button from "../components/partials/Button";
+import styled from "@emotion/styled";
 
-import { Avatar, HeaderWrapper } from "../styles";
+const Pagination = styled.div`
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-const Homepage: React.FC<ComponentProps> = ({ data }) => {
+  .my-button:first-of-type {
+    margin-left: 0;
+  }
+
+  .my-button:last-of-type {
+    margin-right: 0;
+  }
+`;
+
+const Homepage: React.FC<ComponentProps> = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
   const config = data.site.siteMetadata;
-  const avatarPhoto = data.profile.childImageSharp.fixed;
+  // const avatarPhoto = data.profile.childImageSharp.fixed;
+  const headerProp = {
+    title: "okanjauhary",
+    subtitle: "HI, I’m Sulhan Jauhary a front-end developer 👋",
+    showBottomDivider: false,
+  };
+  const { page, totalPage } = pageContext;
+  const isFirstPage = page === 1;
+  const isLastPage = page === totalPage;
+  const prevPageSlug = page - 1 === 1 ? "/" : (page - 1).toString();
+  const nextPageSlug = (page + 1).toString();
 
   return (
-    <Layout>
+    <Layout header={headerProp}>
       <Helmet>
         <html lang={config.lang} />
         <title>{config.title}</title>
@@ -52,28 +77,35 @@ const Homepage: React.FC<ComponentProps> = ({ data }) => {
         )}
       </Helmet>
 
-      <HeaderWrapper className="header-page-wrapper">
-        <Avatar>
-          <img src={avatarPhoto.src} alt={avatarPhoto.originalName} />
-        </Avatar>
-        <h1>{config.title}</h1>
-        <p className="text-muted">{config.description}</p>
-      </HeaderWrapper>
       <div>
         {posts.map(({ node }) => (
-          <Card key={node.id} flat>
-            <div>
-              <span className="text-uppercase">{node.frontmatter.date} | </span>
-              <Link to={`/tag/${node.frontmatter.tags[0]}`}>
-                {node.frontmatter.tags[0]}
-              </Link>
-            </div>
-            <Link to={node.fields.slug} className="link link--flat">
-              <h3>{node.frontmatter.title}</h3>
-            </Link>
-          </Card>
+          <PostCard
+            key={node.id}
+            title={node.frontmatter.title}
+            author={node.frontmatter.author.name}
+            content={node.excerpt}
+            tags={node.frontmatter.tags}
+            timeToRead={`${node.timeToRead} min read`}
+            slug={node.fields.slug}
+            createAt={node.frontmatter.date}
+          />
         ))}
       </div>
+
+      {totalPage > 1 && (
+        <Pagination>
+          <Link to={prevPageSlug}>
+            <Button disabled={isFirstPage} medium>
+              Prev
+            </Button>
+          </Link>
+          <Link to={nextPageSlug}>
+            <Button disabled={isLastPage} medium>
+              Next
+            </Button>
+          </Link>
+        </Pagination>
+      )}
     </Layout>
   );
 };
@@ -81,7 +113,7 @@ const Homepage: React.FC<ComponentProps> = ({ data }) => {
 export default Homepage;
 
 export const postQuery = graphql`
-  query getPostQuery {
+  query getPostQuery($limit: Int!, $offset: Int!) {
     profile: file(relativePath: { eq: "images/avatar.png" }) {
       childImageSharp {
         fixed(width: 80, height: 80) {
@@ -103,7 +135,11 @@ export const postQuery = graphql`
         facebook
       }
     }
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: $limit
+      skip: $offset
+    ) {
       edges {
         node {
           fields {
@@ -113,6 +149,9 @@ export const postQuery = graphql`
             date(formatString: "MMMM DD")
             tags
             title
+            author {
+              name
+            }
           }
           timeToRead
           excerpt

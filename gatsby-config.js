@@ -5,13 +5,13 @@ module.exports = {
   siteMetadata: {
     title: process.env.GATSBY_SITE_NAME,
     baseUrl: process.env.GATSBY_BASE_URL,
-    description: `A personal blog created by Sulhan Jauhary 🎪`,
+    description: `A personal blog that created by Sulhan Jauhary`,
     author: `Sulhan Jauhary`,
     lang: `id`,
-    facebook: `https://www.facebook.com/sulhanjauhary`,
-    twitter: `https://twitter.com/sulhanjauhari`,
+    facebook: `https://www.facebook.com/okanjauhary`,
+    twitter: `https://twitter.com/okanjauhary`,
     linkedin: `https://www.linkedin.com/in/sulhanjauhari`,
-    github: `https://github.com/sulhanjauhari`,
+    github: `https://github.com/okanjauhary`,
   },
   mapping: {
     "MarkdownRemark.frontmatter.author": "AuthorYaml",

@@ -13,26 +13,9 @@ export const Avatar = styled.div`
   }
 `;
 
-export const HeaderWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 300px;
-  padding: 20px;
-  margin-bottom: 40px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-  }
-
-  h1 {
-    margin: 20px 0;
-  }
+export const ButtonText = styled.button`
+  outline: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 `;

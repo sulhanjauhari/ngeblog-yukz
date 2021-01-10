@@ -1,0 +1,7 @@
+@mixin variant($selectors...) {
+  @each $selector in $selectors {
+    @at-root #{$selector}#{&} {
+      @content;
+    }
+  }
+}
