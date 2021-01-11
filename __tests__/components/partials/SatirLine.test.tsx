@@ -1,13 +1,11 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { mount } from "enzyme";
 import SatirLine from "../../../src/components/partials/SatirLine";
 
-test("Displays the correct title", () => {
-  const tree = render(<SatirLine />);
+describe("SatirLine.tsx", () => {
+  test("Should render component and match snapshot", () => {
+    const wrapper = mount(<SatirLine />);
 
-  // Assertion
-
-  expect(tree).toMatchSnapshot();
-
-  // --> Test will pass
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -11,6 +11,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "dependencies": {
@@ -50,9 +51,11 @@
     "react-helmet": "6.1.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.8",
-    "@testing-library/react": "^11.2.3",
+    "@emotion/babel-plugin": "^11.1.2",
+    "@emotion/jest": "^11.1.0",
     "@types/classnames": "2.2.11",
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.20",
     "@types/react-helmet": "6.1.0",
     "@typescript-eslint/eslint-plugin": "4.11.1",
@@ -60,6 +63,9 @@
     "add": "2.0.6",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^0.10.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1",
     "eslint": "7.17.0",
     "eslint-config-prettier": "7.1.0",
     "eslint-plugin-prettier": "3.3.0",

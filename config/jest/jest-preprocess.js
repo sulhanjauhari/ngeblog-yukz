@@ -3,6 +3,7 @@ const babelOptions = {
     "@babel/preset-react",
     "babel-preset-gatsby",
     "@babel/preset-typescript",
+    "@emotion/babel-preset-css-prop",
   ],
 };
 
