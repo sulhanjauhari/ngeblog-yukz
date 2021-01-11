@@ -991,7 +991,7 @@
   dependencies:
     "@babel/plugin-syntax-jsx" "^7.2.0"
 
-"@emotion/babel-plugin@^11.0.0", "@emotion/babel-plugin@^11.1.2":
+"@emotion/babel-plugin@11.1.2", "@emotion/babel-plugin@^11.0.0":
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.1.2.tgz#68fe1aa3130099161036858c64ee92056c6730b7"
   integrity sha512-Nz1k7b11dWw8Nw4Z1R99A9mlB6C6rRsCtZnwNUOj4NsoZdrO2f2A/83ST7htJORD5zpOiLKY59aJN23092949w==
@@ -1081,7 +1081,7 @@
   dependencies:
     "@emotion/memoize" "^0.7.4"
 
-"@emotion/jest@^11.1.0":
+"@emotion/jest@11.1.0":
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/@emotion/jest/-/jest-11.1.0.tgz#ee498838f5f8cfc3c31be38543036372f36ebf4b"
   integrity sha512-nkJY5U/cM3WjFYoKozy4WSKILmV3Y2P/uMynI9HVoCTNuYHSdu0djQBHL6zqBmpRya0sjVT1Sv7lasYYwVoMFg==
@@ -2108,14 +2108,14 @@
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.5.tgz#b14efa8852b7768d898906613c23f688713e02cd"
   integrity sha512-Q1y515GcOdTHgagaVFhHnIFQ38ygs/kmxdNpvpou+raI9UO3YZcHDngBSYKQklcKlvA7iuQlmIKbzvmxcOE9CQ==
 
-"@types/enzyme-adapter-react-16@^1.0.6":
+"@types/enzyme-adapter-react-16@1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.0.6.tgz#8aca7ae2fd6c7137d869b6616e696d21bb8b0cec"
   integrity sha512-VonDkZ15jzqDWL8mPFIQnnLtjwebuL9YnDkqeCDYnB4IVgwUm0mwKkqhrxLL6mb05xm7qqa3IE95m8CZE9imCg==
   dependencies:
     "@types/enzyme" "*"
 
-"@types/enzyme@*", "@types/enzyme@^3.10.8":
+"@types/enzyme@*", "@types/enzyme@3.10.8":
   version "3.10.8"
   resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-3.10.8.tgz#ad7ac9d3af3de6fd0673773123fafbc63db50d42"
   integrity sha512-vlOuzqsTHxog6PV79+tvOHFb6hq4QZKMq1lLD9MaWD1oec2lHTKndn76XOpSwCA0oFTaIbKVPrgM3k78Jjd16g==
@@ -2214,7 +2214,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^26.0.20":
+"@types/jest@26.0.20":
   version "26.0.20"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.20.tgz#cd2f2702ecf69e86b586e1f5223a60e454056307"
   integrity sha512-9zi2Y+5USJRxd0FsahERhBwlcvFh6D2GLQnY2FH2BzK8J9s9omvNHIbvABwIluXa0fD8XVKMLTO0aOEuUfACAA==
@@ -3278,7 +3278,7 @@ babel-extract-comments@^1.0.0:
   dependencies:
     babylon "^6.18.0"
 
-babel-jest@^26.6.3:
+babel-jest@26.6.3, babel-jest@^26.6.3:
   version "26.6.3"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-26.6.3.tgz#d87d25cb0037577a0c89f82e5755c5d293c01056"
   integrity sha512-pl4Q+GAVOHwvjrck6jKjvmGhnO3jHX/xuB9d27f+EJZ/6k+6nMuPjorrYp7s++bKKdANwzElBWnLWaObvTnaZA==
@@ -3419,7 +3419,7 @@ babel-preset-current-node-syntax@^1.0.0:
     "@babel/plugin-syntax-optional-chaining" "^7.8.3"
     "@babel/plugin-syntax-top-level-await" "^7.8.3"
 
-babel-preset-gatsby@^0.10.0:
+babel-preset-gatsby@0.10.0, babel-preset-gatsby@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.10.0.tgz#a7870e340f1125622cc70bd43a722982c587bdda"
   integrity sha512-lcP5h4hUUUDRGTXvJfhDjY6NNSNeOagZlN1fW9HwBTk9ZnkExImDCclNdh88Bq7Wvygnmm/3CHcahCU8lcGMmA==
@@ -5940,7 +5940,7 @@ envinfo@^7.7.3:
   resolved "https://registry.yarnpkg.com/envinfo/-/envinfo-7.7.3.tgz#4b2d8622e3e7366afb8091b23ed95569ea0208cc"
   integrity sha512-46+j5QxbPWza0PB1i15nZx0xQ4I/EfQxg9J8Had3b408SV63nEtor2e+oiY63amTo9KTuh2a3XLObNwduxYwwA==
 
-enzyme-adapter-react-16@^1.15.5:
+enzyme-adapter-react-16@1.15.5:
   version "1.15.5"
   resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.15.5.tgz#7a6f0093d3edd2f7025b36e7fbf290695473ee04"
   integrity sha512-33yUJGT1nHFQlbVI5qdo5Pfqvu/h4qPwi1o0a6ZZsjpiqq92a3HjynDhwd1IeED+Su60HDWV8mxJqkTnLYdGkw==
@@ -5976,7 +5976,7 @@ enzyme-shallow-equal@^1.0.1, enzyme-shallow-equal@^1.0.4:
     has "^1.0.3"
     object-is "^1.1.2"
 
-enzyme-to-json@^3.6.1:
+enzyme-to-json@3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.6.1.tgz#d60740950bc7ca6384dfe6fe405494ec5df996bc"
   integrity sha512-15tXuONeq5ORoZjV/bUo2gbtZrN2IH+Z6DvL35QmZyKHgbY1ahn6wcnLd9Xv9OjiwbAXiiP8MRZwbZrCv1wYNg==
@@ -5985,7 +5985,7 @@ enzyme-to-json@^3.6.1:
     lodash "^4.17.15"
     react-is "^16.12.0"
 
-enzyme@^3.11.0:
+enzyme@3.11.0:
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.11.0.tgz#71d680c580fe9349f6f5ac6c775bc3e6b7a79c28"
   integrity sha512-Dw8/Gs4vRjxY6/6i9wU0V+utmQO9kvh9XLnz3LIudviOnVYDEe2ec+0k+NQoMamn1VrjKgCUOWj5jG/5M5M0Qw==
@@ -8774,7 +8774,7 @@ idb-keyval@^3.2.0:
   resolved "https://registry.yarnpkg.com/idb-keyval/-/idb-keyval-3.2.0.tgz#cbbf354deb5684b6cdc84376294fc05932845bd6"
   integrity sha512-slx8Q6oywCCSfKgPgL0sEsXtPVnSbTLWpyiDcu6msHOyKOLari1TD1qocXVCft80umnkk3/Qqh3lwoFt8T/BPQ==
 
-identity-obj-proxy@^3.0.0:
+identity-obj-proxy@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/identity-obj-proxy/-/identity-obj-proxy-3.0.0.tgz#94d2bda96084453ef36fbc5aaec37e0f79f1fc14"
   integrity sha1-lNK9qWCERT7zb7xarsN+D3nx/BQ=
@@ -10092,7 +10092,7 @@ jest-worker@^26.6.2:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^26.6.3:
+jest@26.6.3:
   version "26.6.3"
   resolved "https://registry.yarnpkg.com/jest/-/jest-26.6.3.tgz#40e8fdbe48f00dfa1f0ce8121ca74b88ac9148ef"
   integrity sha512-lGS5PXGAzR4RF7V5+XObhqz2KZIDUA1yD0DG6pBVmy10eh0ZIXQImRuzocsI/N2XZ1GrLFwTS27In2i2jlpq1Q==
@@ -15691,7 +15691,7 @@ tslib@^2, tslib@^2.0.0, tslib@^2.0.3, tslib@~2.0.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
 
-tslint-react@^5.0.0:
+tslint-react@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/tslint-react/-/tslint-react-5.0.0.tgz#d0ae644e8163bdd3e134012e9353094904e8dd44"
   integrity sha512-/IbcSmoBPlFic8kQaRfQ4knTY4mivwo5LVzvozvX6Dyu2ynEnrh1dIcR2ujjyp/IodXqY/H5GbxFxSMo/Kf2Hg==
