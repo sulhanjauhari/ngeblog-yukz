@@ -23,7 +23,7 @@ jobs:
         run: yarn install
 
       - name: Build app
-        run: yarn build
+        run: yarn build:dev
         env:
           GATSBY_SITE_NAME: ${{ secrets.SITE_NAME }}
           GATSBY_BASE_URL: ${{ secrets.BASE_URL }}
