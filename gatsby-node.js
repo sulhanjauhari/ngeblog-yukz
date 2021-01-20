@@ -65,17 +65,17 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // post detail page
   posts.forEach(({ node }, index) => {
-    const prevSlug = index === 0 ? null : posts[index - 1].node.fields.slug;
-    const nextSlug =
-      index + 1 === posts.length ? null : posts[index + 1].node.fields.slug;
+    const prev = index === 0 ? null : getDetailSlug(posts[index - 1].node);
+    const next =
+      index + 1 === posts.length ? null : getDetailSlug(posts[index + 1].node);
 
     createPage({
       path: node.fields.slug,
       component: Post,
       context: {
         slug: node.fields.slug,
-        prevSlug,
-        nextSlug,
+        prev,
+        next,
       },
     });
   });
@@ -94,3 +94,10 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 };
+
+function getDetailSlug(node) {
+  return {
+    slug: node.fields.slug,
+    title: node.frontmatter.title,
+  };
+}

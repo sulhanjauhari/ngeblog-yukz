@@ -21,7 +21,10 @@ const Pagination = styled.div`
   }
 `;
 
-const Homepage: React.FC<ComponentProps> = ({ data, pageContext }) => {
+const Homepage: React.FC<ComponentProps<HomepageContext>> = ({
+  data,
+  pageContext,
+}) => {
   const posts = data.allMarkdownRemark.edges;
   const config = data.site.siteMetadata;
   // const avatarPhoto = data.profile.childImageSharp.fixed;
@@ -87,7 +90,7 @@ const Homepage: React.FC<ComponentProps> = ({ data, pageContext }) => {
             tags={node.frontmatter.tags}
             timeToRead={`${node.timeToRead} min read`}
             slug={node.fields.slug}
-            createAt={node.frontmatter.date}
+            createdAt={node.frontmatter.date}
           />
         ))}
       </div>
@@ -146,7 +149,7 @@ export const postQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD")
+            date(formatString: "MMM DD")
             tags
             title
             author {
