@@ -5,16 +5,7 @@ import { getTheme } from "../utils/theme";
 import { Title, TextAlit } from "../styles/text";
 import { ButtonText } from "../styles";
 import { Link } from "gatsby";
-
-interface PostCardProp {
-  title: string;
-  author: string;
-  createAt: string;
-  tags: string[];
-  content: string;
-  slug: string;
-  timeToRead: string;
-}
+import PostInfo from "../components/partials/PostInfo";
 
 const PostCardWrapper = styled.div`
   margin-bottom: 2.5rem;
@@ -38,7 +29,7 @@ const CardFooter = styled.div`
 `;
 
 const Card: React.FC<PostCardProp> = props => {
-  const { createAt, tags, title, content, slug, timeToRead, author } = props;
+  const { createdAt, tags, title, content, slug, timeToRead, author } = props;
   const [borderColor, setBorderColor] = useState("#000");
 
   useEffect(() => {
@@ -57,12 +48,7 @@ const Card: React.FC<PostCardProp> = props => {
           </Link>
         </CardContentSection>
         <CardContentSection>
-          <TextAlit>
-            Written by <b>{author}</b> on <b>{createAt}</b> in{" "}
-            {tags.map((tag, i) => (
-              <b key={`tag-${i}`}>{tag}</b>
-            ))}
-          </TextAlit>
+          <PostInfo {...{ author, createdAt, tags }} />
         </CardContentSection>
         <CardContentSection>
           <p>{content}</p>

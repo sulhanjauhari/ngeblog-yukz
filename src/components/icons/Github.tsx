@@ -1,28 +1,16 @@
 import React from "react";
 
-const Github: React.FC<IconProps> = props => {
-  const { width = "50px", height = "50px" } = props;
-
-  return (
-    <div className="my-icons icon-github" css={{ width, height }}>
-      <svg
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        viewBox="0 0 100 100"
-        enableBackground="new 0 0 100 100">
-        <g id="github-icon">
-          <path
-            d="M81,4L50,0L19,4L0,46l11,38l25,16l3-2l-0.78-13.98l-8.89,1.32l-14.15-7.46l3.77-7.16l11.66,6.15l8.69-1.23L41,70l-17-7
-l - 4 - 18l5 - 12V21l13, 5l12 - 2l12, 2l13 - 5v12l5, 12l - 4, 18l - 17, 7l3, 10l - 1, 18l3, 2l25 - 16l11 - 38L81, 4z M60.96, 15.69L50, 13.86l - 10.95, 1.83
-l - 8.16 - 3.14L50, 10.08l19.12, 2.47L60.96, 15.69z M80.44, 77.61l - 8.6, 5.5l0.24 - 4.3l - 0.9 - 3.01l11.11 - 4.57L80.44, 77.61z"
-          />
-        </g>
-      </svg>
-    </div>
-  );
-};
+const Github: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+  </svg>
+);
 
 export default Github;
