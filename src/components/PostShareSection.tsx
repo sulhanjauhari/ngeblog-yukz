@@ -53,25 +53,27 @@ interface PostShareProp {
 const createTweet = (description: string, URL: string): string => {
   const shortDesc = description.split(" ").splice(0, 15).join(" ") + " ...";
   const tweet = encodeURIComponent(shortDesc + "\nby @okanjauhary\ndetail on ");
-  return `https://twitter.com/intent/tweet?text=${tweet}`;
+  return `https://twitter.com/intent/tweet?text=${tweet}&url=${URL}`;
 };
 
 const PostShareSection: React.FC<PostShareProp> = ({ description, title }) => {
   const [isSupportApiShare, setApiShare] = useState(false);
-  const URL = encodeURIComponent(
-    typeof window !== "undefined" ? window.location.href : "",
-  );
-  const tit = encodeURIComponent(title);
-  const desc = encodeURIComponent(description);
-
-  const linkTwitter = createTweet(description, URL);
-  console.log("APA ini", linkTwitter, URL);
-  const linkFacebook = `https://www.facebook.com/sharer/sharer.php?u=${URL}&title=${tit}&description=${desc}`;
+  const [linkShareFb, setLinkShareFb] = useState("");
+  const [linkShareTw, setLinkShareTw] = useState("");
 
   useEffect(() => {
+    const URL = encodeURIComponent(window.location.href);
+    const tit = encodeURIComponent(title);
+    const desc = encodeURIComponent(description);
+
     if ("share" in navigator) {
       setApiShare(true);
     }
+
+    setLinkShareTw(createTweet(description, URL));
+    setLinkShareFb(
+      `https://www.facebook.com/sharer/sharer.php?u=${URL}&title=${tit}&description=${desc}`,
+    );
   });
 
   return (
@@ -90,18 +92,12 @@ const PostShareSection: React.FC<PostShareProp> = ({ description, title }) => {
             <p>Share this post</p>
             <ShareLists css={center}>
               <li>
-                <a
-                  href={linkTwitter + "&url=" + URL}
-                  target="_blank"
-                  rel="noreferrer noopener">
+                <a href={linkShareTw} target="_blank" rel="noreferrer noopener">
                   <Twitter />
                 </a>
               </li>
               <li>
-                <a
-                  href={linkFacebook}
-                  target="_blank"
-                  rel="noreferrer noopener">
+                <a href={linkShareFb} target="_blank" rel="noreferrer noopener">
                   <Facebook />
                 </a>
               </li>
