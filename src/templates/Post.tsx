@@ -112,7 +112,7 @@ const Post: React.FC<ComponentProps<DetailPostContext>> = ({
         </Block>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
-      <PostShareSection />
+      <PostShareSection title={postData.title} description={post.excerpt} />
       <OtherPostSection {...{ prev, next }} />
     </Layout>
   );
