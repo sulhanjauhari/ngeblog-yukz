@@ -52,8 +52,12 @@ interface PostShareProp {
 
 const createTweet = (description: string, URL: string): string => {
   const shortDesc = description.split(" ").splice(0, 15).join(" ") + " ...";
-  const tweet = encodeURIComponent(shortDesc + "\nby @okanjauhary\ndetail on ");
+  const tweet = encodeURIComponent(shortDesc + "\nby @okanjauhary");
   return `https://twitter.com/intent/tweet?text=${tweet}&url=${URL}`;
+};
+
+const createFbFeed = (title: string, URL: string): string => {
+  return `https://www.facebook.com/sharer/sharer.php?u=${URL}&t=${title}`;
 };
 
 const PostShareSection: React.FC<PostShareProp> = ({ description, title }) => {
@@ -64,17 +68,27 @@ const PostShareSection: React.FC<PostShareProp> = ({ description, title }) => {
   useEffect(() => {
     const URL = encodeURIComponent(window.location.href);
     const tit = encodeURIComponent(title);
-    const desc = encodeURIComponent(description);
 
     if ("share" in navigator) {
       setApiShare(true);
     }
 
     setLinkShareTw(createTweet(description, URL));
-    setLinkShareFb(
-      `https://www.facebook.com/sharer/sharer.php?u=${URL}&title=${tit}&description=${desc}`,
-    );
+    setLinkShareFb(createFbFeed(tit, URL));
   });
+
+  const shareThisPost = (event: { preventDefault: () => void }): void => {
+    event.preventDefault();
+
+    navigator
+      .share({
+        title: "okanjauhary.space",
+        text: title,
+        url: window.location.href,
+      })
+      .then(() => console.log("Share post succeed!"))
+      .catch(error => console.log(error));
+  };
 
   return (
     <section css={{ margin: "6rem 0" }}>
@@ -88,21 +102,35 @@ const PostShareSection: React.FC<PostShareProp> = ({ description, title }) => {
               height: 100%;
             `,
           ]}>
-          <div css={{ textAlign: "center" }}>
-            <p>Share this post</p>
-            <ShareLists css={center}>
-              <li>
-                <a href={linkShareTw} target="_blank" rel="noreferrer noopener">
-                  <Twitter />
-                </a>
-              </li>
-              <li>
-                <a href={linkShareFb} target="_blank" rel="noreferrer noopener">
-                  <Facebook />
-                </a>
-              </li>
-            </ShareLists>
-          </div>
+          {isSupportApiShare ? (
+            <div css={{ textAlign: "center" }}>
+              <a href="" title="Share post" onClick={shareThisPost}>
+                Share this post
+              </a>
+            </div>
+          ) : (
+            <div css={{ textAlign: "center" }}>
+              <p>Share this post</p>
+              <ShareLists css={center}>
+                <li>
+                  <a
+                    href={linkShareTw}
+                    target="_blank"
+                    rel="noreferrer noopener">
+                    <Twitter />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={linkShareFb}
+                    target="_blank"
+                    rel="noreferrer noopener">
+                    <Facebook />
+                  </a>
+                </li>
+              </ShareLists>
+            </div>
+          )}
         </div>
         <SatirLine />
       </ShareWrapper>
