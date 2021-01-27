@@ -7,8 +7,14 @@ exports[`Header.tsx Should render component and match snapshot 1`] = `
 
 .emotion-1 {
   text-align: center;
-  padding: 30px 0;
+  padding: 1.5rem 0;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .emotion-1 {
+    padding: 0.9rem 0;
+  }
 }
 
 .emotion-3 {
@@ -52,30 +58,46 @@ exports[`Header.tsx Should render component and match snapshot 1`] = `
   text-decoration: none;
 }
 
-.emotion-17 {
-  width: 1rem;
-  height: 1rem;
+.emotion-15 {
+  margin: 0 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
-.emotion-20 {
-  width: 1rem;
-  height: 1rem;
+.emotion-15:first-of-type {
+  margin-left: 0;
 }
 
-.emotion-23 {
-  width: 1rem;
-  height: 1rem;
+.emotion-15:last-of-type {
+  margin-right: 0;
 }
 
-.emotion-26 {
-  width: 1rem;
-  height: 1rem;
+.emotion-15 a,
+.emotion-15 a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-15 a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
 }
 
 <div
   class="app-header emotion-0"
 >
-  <div
+  <header
     class="emotion-1 emotion-2"
   >
     <h2
@@ -88,7 +110,7 @@ exports[`Header.tsx Should render component and match snapshot 1`] = `
     >
       Test subtitle
     </p>
-  </div>
+  </header>
   <nav
     class="emotion-3 emotion-4"
   >
@@ -129,137 +151,101 @@ exports[`Header.tsx Should render component and match snapshot 1`] = `
       class="emotion-5 emotion-6"
     >
       <li
-        class="emotion-7 emotion-8"
+        class="emotion-15 emotion-8"
       >
         <a
           href="https://facebook.com/okanjauhary"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
-          <div
-            class="my-icons icon-facebook emotion-17"
+          <svg
+            fill="currentColor"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              enable-background="new 0 0 100 100"
-              version="1.1"
-              viewBox="0 0 100 100"
-              x="0px"
-              xlink="http://www.w3.org/1999/xlink"
-              xmlns="http://www.w3.org/2000/svg"
-              y="0px"
-            >
-              <g
-                id="facebook-icon"
-              >
-                <path
-                  d="M85,26.5V0H25v36.5H12.5v27H25V100h30V63.5h30v-27H55v-10H85z M75,46.5v7H45V90H35V53.5H22.5v-7H35V10h40v6.5H45v30H75z"
-                />
-              </g>
-            </svg>
-          </div>
+            <path
+              d="m75 512h167v-182h-60v-60h60v-75c0-41.355469 33.644531-75 75-75h75v60h-60c-16.542969 0-30 13.457031-30 30v60h87.292969l-10 60h-77.292969v182h135c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75zm-45-437c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45v362c0 24.8125-20.1875 45-45 45h-105v-122h72.707031l20-120h-92.707031v-30h90v-120h-105c-57.898438 0-105 47.101562-105 105v45h-60v120h60v122h-137c-24.8125 0-45-20.1875-45-45zm0 0"
+            />
+          </svg>
         </a>
       </li>
       <li
-        class="emotion-7 emotion-8"
+        class="emotion-15 emotion-8"
       >
         <a
           href="https://twitter.com/okanjauhary"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
-          <div
-            class="my-icons icon-twitter emotion-20"
+          <svg
+            fill="none"
+            id="Icons"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            version="1.1"
+            viewBox="0 0 32 32"
+            x="0px"
+            xlink="http://www.w3.org/1999/xlink"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0px"
           >
-            <svg
-              enable-background="new 0 0 100 100"
-              version="1.1"
-              viewBox="0 0 100 100"
-              x="0px"
-              xlink="http://www.w3.org/1999/xlink"
-              xmlns="http://www.w3.org/2000/svg"
-              y="0px"
-            >
-              <g
-                id="twitter-icon"
-              >
-                <path
-                  d="M88,21l9-10l-14,5L67,9L48,22v14L5,16l10,17l-8-1l11,18l-7,1l14,19L0,81l32,10l45-17l12-43l11-12L88,21z M78.12,32.78
-l - 9.39, 33.65L31.69, 80.43l - 3.25 - 1.02l12.02 - 5.29L28.97, 58.53l5.48 - 0.78l - 8.1 - 13.25l7.56, 0.95l - 4.02 - 6.83L58, 51.68V27.27l10.07 - 6.89
-l5.04, 2.21"
-                />
-              </g>
-            </svg>
-          </div>
+            <path
+              d="M30,5c-1.1,0.7-2.2,1.3-3.6,1.6C25.2,5,23.2,4,21,4c-3.9,0-7,3.1-7,7c0,0.4,0,0.8,0.1,1.2 c-4.4-0.7-8.3-3-11-6.4C2.6,6.7,2.3,7.8,2.3,9c0,2.2,1.1,4.1,2.7,5.2c-1,0-2-0.3-2.8-0.8v0.1c0,3.1,2.1,5.6,4.9,6.2 c-0.5,0.1-1.1,0.2-1.6,0.2c-0.4,0-0.8,0-1.2-0.1c0.8,2.5,3,4.3,5.7,4.4c-2.1,1.7-4.8,2.7-7.6,2.7c-0.5,0-1,0-1.5-0.1 c2.7,1.8,5.9,2.8,9.4,2.8c11.2,0,17.4-9.5,17.5-17.8L31,10l-3-1L30,5z"
+            />
+          </svg>
         </a>
       </li>
       <li
-        class="emotion-7 emotion-8"
+        class="emotion-15 emotion-8"
       >
         <a
           href="https://www.linkedin.com/in/sulhanjauhari"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
-          <div
-            class="my-icons icon-linkedin emotion-23"
+          <svg
+            fill="currentColor"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              enable-background="new 0 0 100 100"
-              version="1.1"
-              viewBox="0 0 100 100"
-              x="0px"
-              xlink="http://www.w3.org/1999/xlink"
-              xmlns="http://www.w3.org/2000/svg"
-              y="0px"
-            >
-              <g
-                id="linkedin-icon"
-              >
-                <path
-                  d="M0,30v70h22V30H0z M12,90h-2V40h2V90z"
-                />
-                <path
-                  d="M58,30l-6,8.57V30H30v70h22V52h26v48h22V52V32v-2H58z M42,90h-2V40h2V90z M90,90h-2V42H61.81l1.4-2H90V90z"
-                />
-                <path
-                  d="M0,0v22h22V0H0z M12,12h-2v-2h2V12z"
-                />
-              </g>
-            </svg>
-          </div>
+            <path
+              d="m437 0h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75h362c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75zm45 437c0 24.8125-20.1875 45-45 45h-362c-24.8125 0-45-20.1875-45-45v-362c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45zm0 0"
+            />
+            <path
+              d="m91 422h90v-212h-90zm30-182h30v152h-30zm0 0"
+            />
+            <path
+              d="m331.085938 210c-.027344 0-.058594 0-.085938 0-10.371094 0-20.472656 1.734375-30 5.101562v-5.101562h-90v212h90v-107c0-8.269531 6.730469-15 15-15s15 6.730469 15 15v107h90v-117.3125c0-48.546875-39.382812-94.640625-89.914062-94.6875zm59.914062 182h-30v-77c0-24.8125-20.1875-45-45-45s-44.996094 20.1875-45 44.996094v77.003906h-30v-152h30v30.019531l24.007812-18.03125c10.441407-7.84375 22.886719-11.988281 35.992188-11.988281h.058594c31.929687.03125 59.941406 30.257812 59.941406 64.6875zm0 0"
+            />
+            <path
+              d="m91 180h90v-90h-90zm30-60h30v30h-30zm0 0"
+            />
+          </svg>
         </a>
       </li>
       <li
-        class="emotion-7 emotion-8"
+        class="emotion-15 emotion-8"
       >
         <a
           href="https://github.com/okanjauhary"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
-          <div
-            class="my-icons icon-github emotion-26"
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              enable-background="new 0 0 100 100"
-              version="1.1"
-              viewBox="0 0 100 100"
-              x="0px"
-              xlink="http://www.w3.org/1999/xlink"
-              xmlns="http://www.w3.org/2000/svg"
-              y="0px"
-            >
-              <g
-                id="github-icon"
-              >
-                <path
-                  d="M81,4L50,0L19,4L0,46l11,38l25,16l3-2l-0.78-13.98l-8.89,1.32l-14.15-7.46l3.77-7.16l11.66,6.15l8.69-1.23L41,70l-17-7
-l - 4 - 18l5 - 12V21l13, 5l12 - 2l12, 2l13 - 5v12l5, 12l - 4, 18l - 17, 7l3, 10l - 1, 18l3, 2l25 - 16l11 - 38L81, 4z M60.96, 15.69L50, 13.86l - 10.95, 1.83
-l - 8.16 - 3.14L50, 10.08l19.12, 2.47L60.96, 15.69z M80.44, 77.61l - 8.6, 5.5l0.24 - 4.3l - 0.9 - 3.01l11.11 - 4.57L80.44, 77.61z"
-                />
-              </g>
-            </svg>
-          </div>
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            />
+          </svg>
         </a>
       </li>
     </ul>
