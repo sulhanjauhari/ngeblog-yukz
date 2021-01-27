@@ -1,24 +1,46 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
+import Image from "gatsby-image";
 import Layout from "../components/Layout";
+import { Title } from "../styles/text";
+import PostInfo from "../components/partials/PostInfo";
+import styled from "@emotion/styled";
+import OtherPostSection from "../components/OtherPostSection";
+import PostShareSection from "../components/PostShareSection";
 
-const Post: React.FC<ComponentProps> = ({ data }) => {
+const Block = styled.div`
+  display: block;
+  margin-bottom: 1.5rem;
+`;
+
+interface DetailPostContext extends OtherPostSectionProp {
+  slug: string;
+}
+
+const Post: React.FC<ComponentProps<DetailPostContext>> = ({
+  data,
+  pageContext,
+}) => {
   const { markdownRemark: post } = data;
   const config = data.site.siteMetadata;
+  const postData = post.frontmatter;
+  const bannerFluid = post.frontmatter.banner.childImageSharp.fluid;
+  const { prev, next } = pageContext;
 
   return (
-    <Layout>
+    <Layout header={{ showBottomDivider: true }}>
       <Helmet>
         <html lang={config.lang} />
         <title>
-          {post && post.frontmatter.title} • {config.title}
+          {postData.title} • {config.title}
         </title>
 
         <meta name="description" content={post && post.excerpt} />
+        <meta name="keywords" content={postData.tags.join(", ")} />
         <meta property="og:site_name" content={config.title} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={post && post.frontmatter.title} />
+        <meta property="og:title" content={postData.title} />
         <meta property="og:description" content={post && post.excerpt} />
         <meta property="og:url" content={config.baseUrl + post.fields.slug} />
         {post?.frontmatter?.banner?.childImageSharp && (
@@ -28,12 +50,9 @@ const Post: React.FC<ComponentProps> = ({ data }) => {
           />
         )}
 
-        <meta
-          property="article:published_time"
-          content={post && post.frontmatter.date}
-        />
+        <meta property="article:published_time" content={postData.date} />
 
-        {post && post.frontmatter.tags && (
+        {postData.tags && (
           <meta property="article:tag" content={post.frontmatter.tags[0]} />
         )}
 
@@ -44,7 +63,7 @@ const Post: React.FC<ComponentProps> = ({ data }) => {
           <meta property="article:author" content={config.facebook} />
         )}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post && post.frontmatter.title} />
+        <meta name="twitter:title" content={postData.title} />
         <meta name="twitter:description" content={post && post.excerpt} />
         <meta name="twitter:url" content={config.baseUrl + post.fields.slug} />
         {post?.frontmatter?.banner?.childImageSharp && (
@@ -54,10 +73,7 @@ const Post: React.FC<ComponentProps> = ({ data }) => {
           />
         )}
         <meta name="twitter:label1" content="Written by" />
-        <meta
-          name="twitter:data1"
-          content={post && post.frontmatter.author.id}
-        />
+        <meta name="twitter:data1" content={postData.author.id} />
         <meta name="twitter:label2" content="Filed under" />
         {post?.frontmatter.tags && (
           <meta name="twitter:data2" content={post.frontmatter.tags[0]} />
@@ -76,10 +92,28 @@ const Post: React.FC<ComponentProps> = ({ data }) => {
         )}
       </Helmet>
 
-      <div>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      <article css={{ marginTop: "4rem" }}>
+        <div css={{ marginBottom: "0.5rem" }}>
+          <Title>{postData.title}</Title>
+        </div>
+        <Block>
+          <PostInfo
+            author={postData.author.name}
+            createdAt={postData.date}
+            tags={postData.tags}
+          />
+        </Block>
+        <Block>
+          <Image
+            fluid={bannerFluid}
+            title={`Image from post ${postData.title}`}
+            alt="Banner image"
+          />
+        </Block>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      </article>
+      <PostShareSection title={postData.title} description={post.excerpt} />
+      <OtherPostSection {...{ prev, next }} />
     </Layout>
   );
 };
@@ -109,9 +143,18 @@ export const postQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "DD MMM YYYY HH:mm:ss")
+        date(formatString: "MMMM DD, YYYY")
+        tags
         author {
           id
+          name
+        }
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 960, maxHeight: 480, fit: COVER) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header.tsx Should render component and match snapshot 1`] = `
+.emotion-0 {
+  margin-bottom: 10px;
+}
+
+.emotion-1 {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .emotion-1 {
+    padding: 0.9rem 0;
+  }
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-5 {
+  list-style: none;
+  padding: unset;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-7 {
+  margin: 0 8px;
+}
+
+.emotion-7:first-of-type {
+  margin-left: 0;
+}
+
+.emotion-7:last-of-type {
+  margin-right: 0;
+}
+
+.emotion-7 a,
+.emotion-7 a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-15 {
+  margin: 0 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-15:first-of-type {
+  margin-left: 0;
+}
+
+.emotion-15:last-of-type {
+  margin-right: 0;
+}
+
+.emotion-15 a,
+.emotion-15 a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-15 a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+<div
+  class="app-header emotion-0"
+>
+  <header
+    class="emotion-1 emotion-2"
+  >
+    <h2
+      class="page-title"
+    >
+      Test title
+    </h2>
+    <p
+      class="page-subtitle"
+    >
+      Test subtitle
+    </p>
+  </header>
+  <nav
+    class="emotion-3 emotion-4"
+  >
+    <ul
+      class="emotion-5 emotion-6"
+    >
+      <li
+        class="emotion-7 emotion-8"
+      >
+        <a
+          aria-current="page"
+          class=""
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        class="emotion-7 emotion-8"
+      >
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li
+        class="emotion-7 emotion-8"
+      >
+        <a
+          href="/rss"
+        >
+          RSS
+        </a>
+      </li>
+    </ul>
+    <ul
+      class="emotion-5 emotion-6"
+    >
+      <li
+        class="emotion-15 emotion-8"
+      >
+        <a
+          href="https://facebook.com/okanjauhary"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            fill="currentColor"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m75 512h167v-182h-60v-60h60v-75c0-41.355469 33.644531-75 75-75h75v60h-60c-16.542969 0-30 13.457031-30 30v60h87.292969l-10 60h-77.292969v182h135c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75zm-45-437c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45v362c0 24.8125-20.1875 45-45 45h-105v-122h72.707031l20-120h-92.707031v-30h90v-120h-105c-57.898438 0-105 47.101562-105 105v45h-60v120h60v122h-137c-24.8125 0-45-20.1875-45-45zm0 0"
+            />
+          </svg>
+        </a>
+      </li>
+      <li
+        class="emotion-15 emotion-8"
+      >
+        <a
+          href="https://twitter.com/okanjauhary"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            fill="none"
+            id="Icons"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            version="1.1"
+            viewBox="0 0 32 32"
+            x="0px"
+            xlink="http://www.w3.org/1999/xlink"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0px"
+          >
+            <path
+              d="M30,5c-1.1,0.7-2.2,1.3-3.6,1.6C25.2,5,23.2,4,21,4c-3.9,0-7,3.1-7,7c0,0.4,0,0.8,0.1,1.2 c-4.4-0.7-8.3-3-11-6.4C2.6,6.7,2.3,7.8,2.3,9c0,2.2,1.1,4.1,2.7,5.2c-1,0-2-0.3-2.8-0.8v0.1c0,3.1,2.1,5.6,4.9,6.2 c-0.5,0.1-1.1,0.2-1.6,0.2c-0.4,0-0.8,0-1.2-0.1c0.8,2.5,3,4.3,5.7,4.4c-2.1,1.7-4.8,2.7-7.6,2.7c-0.5,0-1,0-1.5-0.1 c2.7,1.8,5.9,2.8,9.4,2.8c11.2,0,17.4-9.5,17.5-17.8L31,10l-3-1L30,5z"
+            />
+          </svg>
+        </a>
+      </li>
+      <li
+        class="emotion-15 emotion-8"
+      >
+        <a
+          href="https://www.linkedin.com/in/sulhanjauhari"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            fill="currentColor"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m437 0h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75h362c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75zm45 437c0 24.8125-20.1875 45-45 45h-362c-24.8125 0-45-20.1875-45-45v-362c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45zm0 0"
+            />
+            <path
+              d="m91 422h90v-212h-90zm30-182h30v152h-30zm0 0"
+            />
+            <path
+              d="m331.085938 210c-.027344 0-.058594 0-.085938 0-10.371094 0-20.472656 1.734375-30 5.101562v-5.101562h-90v212h90v-107c0-8.269531 6.730469-15 15-15s15 6.730469 15 15v107h90v-117.3125c0-48.546875-39.382812-94.640625-89.914062-94.6875zm59.914062 182h-30v-77c0-24.8125-20.1875-45-45-45s-44.996094 20.1875-45 44.996094v77.003906h-30v-152h30v30.019531l24.007812-18.03125c10.441407-7.84375 22.886719-11.988281 35.992188-11.988281h.058594c31.929687.03125 59.941406 30.257812 59.941406 64.6875zm0 0"
+            />
+            <path
+              d="m91 180h90v-90h-90zm30-60h30v30h-30zm0 0"
+            />
+          </svg>
+        </a>
+      </li>
+      <li
+        class="emotion-15 emotion-8"
+      >
+        <a
+          href="https://github.com/okanjauhary"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

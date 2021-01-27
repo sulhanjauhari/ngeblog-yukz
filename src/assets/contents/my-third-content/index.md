@@ -4,7 +4,7 @@ date: "2020-12-29 16:25:10"
 tags: ["other"]
 author: "sulhan"
 publish: true
-banner: "../../images/gatsby-astronaut.png"
+banner: "nature.jpg"
 ---
 
 Sunt quis sint aliqua nulla tempor mollit. Deserunt elit ullamco nisi eiusmod anim ea. Minim eiusmod duis nostrud et do est consequat in.

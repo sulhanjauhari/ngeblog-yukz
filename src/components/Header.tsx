@@ -6,11 +6,16 @@ import Facebook from "../components/icons/Facebook";
 import Github from "../components/icons/Github";
 import Linkedin from "../components/icons/Linkedin";
 import Twitter from "../components/icons/Twitter";
+import SatirLine from "../components/partials/SatirLine";
 
-const PageInfo = styled.div`
+const PageInfo = styled.header`
   text-align: center;
-  padding: 30px 0;
+  padding: 1.5rem 0;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 600px) {
+    padding: 0.9rem 0;
+  }
 `;
 
 const MenuWrapper = styled.nav`
@@ -39,6 +44,18 @@ const MenuItem = styled.li`
   a,
   a:hover {
     text-decoration: none;
+  }
+`;
+
+const socialIcon = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
   }
 `;
 
@@ -80,7 +97,7 @@ const Header: React.FC<HeaderProps> = props => (
   <div
     className="app-header"
     css={css`
-      margin-bottom: 10px;
+      margin-bottom: ${props.showBottomDivider ? "1.5rem" : "10px"};
     `}>
     <PageInfo>
       <h2 className="page-title">{props.title}</h2>
@@ -98,14 +115,15 @@ const Header: React.FC<HeaderProps> = props => (
       </Menu>
       <Menu>
         {socials.map((item, i) => (
-          <MenuItem key={`menu-right-${i}`}>
-            <a href={item.link} rel="noreferrer" target="_blank">
-              <item.icon width="1rem" height="1rem" />
+          <MenuItem key={`menu-right-${i}`} css={socialIcon}>
+            <a href={item.link} rel="noopener noreferrer" target="_blank">
+              <item.icon />
             </a>
           </MenuItem>
         ))}
       </Menu>
     </MenuWrapper>
+    {props.showBottomDivider && <SatirLine />}
   </div>
 );
 

@@ -45,14 +45,14 @@ interface SiteMetadata extends SocialMedia {
   baseUrl: string;
 }
 
-interface PageContext {
+interface HomepageContext {
   totalPage: number;
   limit: number;
   offset: number;
   page: number;
 }
 
-interface ComponentProps {
+interface ComponentProps<C> {
   data: {
     site: {
       siteMetadata: SiteMetadata;
@@ -78,5 +78,5 @@ interface ComponentProps {
       };
     };
   };
-  pageContext: PageContext;
+  pageContext: C;
 }
