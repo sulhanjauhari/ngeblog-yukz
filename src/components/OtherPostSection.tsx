@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import ArrowLeft from "./icons/ArrowLeft";
 import ArrowRight from "./icons/ArrowRight";
-import { css } from "@emotion/core";
 
 const OtherPostWrapper = styled.ul`
   display: flex;
