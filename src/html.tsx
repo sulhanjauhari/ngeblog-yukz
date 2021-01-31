@@ -1,7 +1,7 @@
 import React from "react";
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const html = props => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const html: React.FC = (props: any) => {
   return (
     <html {...props.htmlAttributes}>
       <head>
