@@ -69,5 +69,12 @@ module.exports = {
         postCssPlugins: [require("cssnano")(), require("autoprefixer")],
       },
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `red`,
+        showSpinner: false,
+      },
+    },
   ],
 };
