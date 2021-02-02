@@ -7351,7 +7351,7 @@ gatsby-plugin-manifest@2.11.0:
     semver "^7.3.2"
     sharp "^0.27.0"
 
-gatsby-plugin-nprogress@^2.9.0:
+gatsby-plugin-nprogress@2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-nprogress/-/gatsby-plugin-nprogress-2.9.0.tgz#6be4d1da9126b5cf2f4f21828cbd3c5878edc922"
   integrity sha512-zaYokx5qz2E0frSf5ts/oS0eqkJgYVZZaE+a72zwn7vhUtuf2jiXydt8fdQtDyxH2nMyoj1weAZafOSCyGL7UQ==
