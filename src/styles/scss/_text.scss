@@ -12,3 +12,9 @@
 .text-center {
   text-align: center;
 }
+
+.text-center-on-mobile {
+  @media screen and (max-width: 600px) {
+    text-align: center;
+  }
+}

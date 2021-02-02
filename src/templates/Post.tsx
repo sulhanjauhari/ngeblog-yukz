@@ -94,7 +94,7 @@ const Post: React.FC<ComponentProps<DetailPostContext>> = ({
 
       <article css={{ marginTop: "4rem" }}>
         <div css={{ marginBottom: "0.5rem" }}>
-          <Title>{postData.title}</Title>
+          <Title className="text-center-on-mobile">{postData.title}</Title>
         </div>
         <Block>
           <PostInfo
