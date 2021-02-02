@@ -11,6 +11,15 @@ const OtherPostWrapper = styled.ul`
   list-style: none;
   padding: unset;
 
+  @media screen and (max-width: 600px) {
+    justify-content: flex-start;
+    flex-direction: column;
+
+    li:first-of-type {
+      margin-bottom: 10px;
+    }
+  }
+
   li {
     svg {
       width: 24px;
