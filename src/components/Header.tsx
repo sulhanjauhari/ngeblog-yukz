@@ -68,10 +68,6 @@ const menuLists = [
     text: "About",
     to: "/about",
   },
-  {
-    text: "RSS",
-    to: "/rss",
-  },
 ];
 
 const socials = [
@@ -112,6 +108,9 @@ const Header: React.FC<HeaderProps> = props => (
             <Link to={item.to}>{item.text}</Link>
           </MenuItem>
         ))}
+        <MenuItem>
+          <a href="/rss.xml">RSS</a>
+        </MenuItem>
       </Menu>
       <Menu>
         {socials.map((item, i) => (
