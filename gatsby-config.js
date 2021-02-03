@@ -3,8 +3,8 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    title: process.env.GATSBY_SITE_NAME,
-    baseUrl: process.env.GATSBY_BASE_URL,
+    title: process.env.SITE_NAME,
+    siteUrl: process.env.SITE_URL,
     description: `A personal blog that created by Sulhan Jauhary`,
     author: `Sulhan Jauhary`,
     lang: `id`,
@@ -34,8 +34,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Blog " + process.env.GATSBY_SITE_NAME,
-        short_name: process.env.GATSBY_SITE_NAME,
+        name: "Blog " + process.env.SITE_NAME,
+        short_name: process.env.SITE_NAME,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

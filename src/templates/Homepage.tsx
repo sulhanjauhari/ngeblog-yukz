@@ -36,8 +36,8 @@ const Homepage: React.FC<ComponentProps<HomepageContext>> = ({
   const { page, totalPage } = pageContext;
   const isFirstPage = page === 1;
   const isLastPage = page === totalPage;
-  const prevPageSlug = page - 1 === 1 ? "/" : (page - 1).toString();
-  const nextPageSlug = (page + 1).toString();
+  const prevPageSlug = `/${page - 1 === 1 ? "" : (page - 1).toString()}`;
+  const nextPageSlug = `/${(page + 1).toString()}`;
 
   return (
     <Layout header={headerProp}>
@@ -49,10 +49,10 @@ const Homepage: React.FC<ComponentProps<HomepageContext>> = ({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={config.title} />
         <meta property="og:description" content={config.description} />
-        <meta property="og:url" content={config.baseUrl} />
+        <meta property="og:url" content={config.siteUrl} />
         {/* <meta
           property="og:image"
-          content={`${config.baseUrl}/meta-image-home.jpg`}
+          content={`${config.siteUrl}/meta-image-home.jpg`}
         /> */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -67,10 +67,10 @@ const Homepage: React.FC<ComponentProps<HomepageContext>> = ({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.description} />
-        <meta name="twitter:url" content={config.baseUrl} />
+        <meta name="twitter:url" content={config.siteUrl} />
         {/* <meta
           name="twitter:image"
-          content={`${config.baseUrl}/meta-image-home.jpg`}
+          content={`${config.siteUrl}/meta-image-home.jpg`}
         /> */}
         {config.twitter && (
           <meta
@@ -130,7 +130,7 @@ export const postQuery = graphql`
         title
         description
         author
-        baseUrl
+        siteUrl
         twitter
         linkedin
         lang
