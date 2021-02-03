@@ -42,7 +42,7 @@ interface SiteMetadata extends SocialMedia {
   description: string;
   author: string;
   lang: string;
-  baseUrl: string;
+  siteUrl: string;
 }
 
 interface HomepageContext {

@@ -1,8 +1,10 @@
 const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
 const _ = require("lodash");
+const { createFilePath } = require("gatsby-source-filesystem");
+require("dotenv").config();
 
-const POST_PER_PAGE = 5;
+const POST_PER_PAGE = Number(process.env.POST_PER_PAGE || 5);
+const POST_PREFIX_URI = process.env.POST_PREFIX_URI || "";
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -13,7 +15,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: slug,
+      value: POST_PREFIX_URI + slug,
     });
   }
 };

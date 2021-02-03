@@ -42,11 +42,11 @@ const Post: React.FC<ComponentProps<DetailPostContext>> = ({
         <meta property="og:type" content="article" />
         <meta property="og:title" content={postData.title} />
         <meta property="og:description" content={post && post.excerpt} />
-        <meta property="og:url" content={config.baseUrl + post.fields.slug} />
+        <meta property="og:url" content={config.siteUrl + post.fields.slug} />
         {post?.frontmatter?.banner?.childImageSharp && (
           <meta
             property="og:image"
-            content={`${config.baseUrl}${post.frontmatter.banner.childImageSharp.fluid.src}`}
+            content={`${config.siteUrl}${post.frontmatter.banner.childImageSharp.fluid.src}`}
           />
         )}
 
@@ -65,11 +65,11 @@ const Post: React.FC<ComponentProps<DetailPostContext>> = ({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={postData.title} />
         <meta name="twitter:description" content={post && post.excerpt} />
-        <meta name="twitter:url" content={config.baseUrl + post.fields.slug} />
+        <meta name="twitter:url" content={config.siteUrl + post.fields.slug} />
         {post?.frontmatter?.banner?.childImageSharp && (
           <meta
             name="twitter:image"
-            content={`${config.baseUrl}${post.frontmatter.banner.childImageSharp.fluid.src}`}
+            content={`${config.siteUrl}${post.frontmatter.banner.childImageSharp.fluid.src}`}
           />
         )}
         <meta name="twitter:label1" content="Written by" />
@@ -127,7 +127,7 @@ export const postQuery = graphql`
         title
         description
         author
-        baseUrl
+        siteUrl
         twitter
         linkedin
         lang
