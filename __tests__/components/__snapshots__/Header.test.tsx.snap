@@ -141,7 +141,7 @@ exports[`Header.tsx Should render component and match snapshot 1`] = `
         class="emotion-7 emotion-8"
       >
         <a
-          href="/rss"
+          href="/rss.xml"
         >
           RSS
         </a>

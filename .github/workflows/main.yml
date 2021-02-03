@@ -25,8 +25,8 @@ jobs:
       - name: Build app
         run: yarn build:dev
         env:
-          GATSBY_SITE_NAME: ${{ secrets.SITE_NAME }}
-          GATSBY_BASE_URL: ${{ secrets.BASE_URL }}
+          SITE_NAME: ${{ secrets.SITE_NAME }}
+          SITE_URL: ${{ secrets.SITE_URL }}
 
       - name: Test app
         run: yarn test
