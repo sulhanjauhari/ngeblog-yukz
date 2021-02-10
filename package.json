@@ -79,7 +79,7 @@
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
     "tslint-react": "5.0.0",
-    "typescript": "4.1.4",
+    "typescript": "4.1.5",
     "yarn": "1.22.10"
   },
   "keywords": [
