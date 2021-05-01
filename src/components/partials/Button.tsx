@@ -9,7 +9,7 @@ type ButtonProp = {
   large?: boolean;
 };
 
-const SatirLine: React.FC<ButtonProp> = props => {
+const Button: React.FC<ButtonProp> = props => {
   const { children, disabled = false, type = "button" } = props;
   const buttonClassName = classNames({
     "my-button": true,
@@ -40,4 +40,4 @@ const SatirLine: React.FC<ButtonProp> = props => {
   );
 };
 
-export default SatirLine;
+export default Button;
