@@ -1,21 +1,18 @@
-import React from "react";
-import { render, mount } from "enzyme";
+import { render, cleanup } from "@testing-library/react";
 import Header from "../../src/components/Header";
 
-describe("Header.tsx", () => {
-  test("Should render component and match snapshot", () => {
-    const props = {
-      title: "Test title",
-      subtitle: "Test subtitle",
-    };
-    const wrapper = render(<Header {...props} />);
+afterEach(cleanup);
 
-    expect(wrapper).toMatchSnapshot();
+describe("Header.tsx", () => {
+  test("Shouldn't render SatirLine component", () => {
+    const { container } = render(<Header />);
+
+    expect(container.getElementsByClassName("satir-line").length).toBe(0);
   });
 
-  test("Should render have SatirLine component", () => {
-    const wrapper = mount(<Header showBottomDivider={true} />);
+  test("Should render SatirLine component", () => {
+    const { container } = render(<Header showBottomDivider={true} />);
 
-    expect(wrapper.exists(".satir-line")).toBe(true);
+    expect(container.getElementsByClassName("satir-line").length).toBe(1);
   });
 });
