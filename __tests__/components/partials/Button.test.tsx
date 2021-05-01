@@ -1,25 +1,25 @@
-import React from "react";
-import { render, mount } from "enzyme";
+import { render, screen, cleanup } from "@testing-library/react";
 import Button from "../../../src/components/partials/Button";
 
-describe("Button.tsx", () => {
-  test("Should render component and match snapshot", () => {
-    const wrapper = render(<Button />);
+afterEach(cleanup);
 
-    expect(wrapper).toMatchSnapshot();
+describe("Button.tsx", () => {
+  test("Should render button text correctly", () => {
+    render(<Button>Test Button</Button>);
+
+    expect(screen.getByText("Test Button")).toBeInTheDocument();
   });
 
   test("Should set button disable correctly", () => {
-    const wrapper = mount(<Button disabled />);
+    render(<Button disabled>Test Button</Button>);
 
-    expect(wrapper.exists(".my-button--disabled")).toBe(true);
+    expect(screen.getByText("Test Button")).toBeDisabled();
   });
 
   test("Should set button type correctly", () => {
     const type = "submit";
-    const wrapper = mount(<Button type={type} />);
+    const { container } = render(<Button type={type}>Test Button</Button>);
 
-    const button = wrapper.find(`.my-button button[type="${type}"]`);
-    expect(button.exists()).toBe(true);
+    expect(container.querySelector("button").getAttribute("type")).toBe(type);
   });
 });
