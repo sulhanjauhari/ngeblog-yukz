@@ -1,19 +1,17 @@
-const path = require("path");
-
 module.exports = {
-  setupFilesAfterEnv: [
-    path.resolve(__dirname, "./config/jest/setup-test-env.js"),
-    path.resolve(__dirname, "./config/setup-enzyme.js"),
-  ],
+  verbose: true,
+  setupFilesAfterEnv: ["<rootDir>/config/test/setup-test.js"],
+  testMatch: [`<rootDir>/__tests__/**/*.{test,spec}.{ts,tsx}`],
   transform: {
-    "\\.svg": "<rootDir>/config/jest/__mocks__/svgTransform.js",
-    "^.+\\.(tsx?|jsx?)$": `<rootDir>/config/jest/jest-preprocess.js`,
+    "\\.svg": "<rootDir>/config/test/svg-transform.js",
+    "^.+\\.(tsx?|jsx?)$": `<rootDir>/config/test/jest-preprocess.js`,
+    "^.+\\.css$": "<rootDir>/config/test/css-transform.js",
   },
   moduleNameMapper: {
-    "\\.svg": `<rootDir>/config/jest/__mocks__/svgTransform.js`,
+    "\\.svg": `<rootDir>/config/test/svg-transform.js`,
     "typeface-*": "identity-obj-proxy",
     ".+\\.(css|less|sass|scss)$": `identity-obj-proxy`,
-    ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": `<rootDir>/config/jest/__mocks__/file-mocks.js`,
+    ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": `<rootDir>/config/test/file-mocks.js`,
     "^Components(.*)$": "<rootDir>/src/components$1",
   },
   testPathIgnorePatterns: [`node_modules`, `.cache`, `public`],
@@ -21,9 +19,8 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ``,
   },
-  testRegex: "(/__tests__/.*|\\.test)\\.(ts|tsx)$",
   moduleFileExtensions: ["ts", "tsx", "js"],
-  setupFiles: [`<rootDir>/config/jest/loadershim.js`],
+  setupFiles: [`<rootDir>/config/test/loadershim.js`],
   collectCoverage: false,
   collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
   coveragePathIgnorePatterns: [],
@@ -36,5 +33,6 @@ module.exports = {
       functions: 10,
     },
   },
-  snapshotSerializers: ["enzyme-to-json/serializer"],
+  testEnvironment: "jsdom",
+  resetMocks: true,
 };

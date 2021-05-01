@@ -16,6 +16,7 @@ const SatirLine: React.FC = () => {
 
   return (
     <div
+      data-testid="satir-line"
       className="satir-line"
       css={css`
         margin: 10px 0;

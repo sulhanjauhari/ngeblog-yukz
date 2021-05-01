@@ -1,11 +1,13 @@
 import React from "react";
-import { mount } from "enzyme";
+import { render, cleanup, screen } from "@testing-library/react";
 import SatirLine from "../../../src/components/partials/SatirLine";
 
-describe("SatirLine.tsx", () => {
-  test("Should render component and match snapshot", () => {
-    const wrapper = mount(<SatirLine />);
+afterEach(cleanup);
 
-    expect(wrapper).toMatchSnapshot();
+describe("SatirLine.tsx", () => {
+  test("Should render component correctly", () => {
+    render(<SatirLine />);
+
+    expect(screen.getByTestId("satir-line")).toBeInTheDocument();
   });
 });
