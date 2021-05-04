@@ -2,51 +2,128 @@ import { Link } from "gatsby";
 import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
+import Facebook from "../components/icons/Facebook";
+import Github from "../components/icons/Github";
+import Linkedin from "../components/icons/Linkedin";
+import Twitter from "../components/icons/Twitter";
+import SatirLine from "../components/partials/SatirLine";
 
-const headerWrapper = css`
-  height: 100px;
-  margin: auto;
-  max-width: 1400px;
-  padding: 0 1.0875rem 0 1.45rem;
-  display: flex;
-  justify-content: flex-end;
-`;
+const PageInfo = styled.header`
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-bottom: 20px;
 
-const List = styled.ul`
-  list-style: none;
-  height: 100%;
-  display: flex;
-`;
-
-const ListItem = styled.li`
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  margin-left: 20px;
-
-  a {
-    font-weight: 400;
-    font-size: 22px;
-
-    &:hover {
-      text-decoration: none;
-    }
+  @media screen and (max-width: 600px) {
+    padding: 0.9rem 0;
   }
 `;
 
-const Header = () => (
-  <header>
-    <nav css={headerWrapper}>
-      <List>
-        <ListItem>
-          <Link to="/">Home</Link>
-        </ListItem>
-        <ListItem>
-          <Link to="/about">About</Link>
-        </ListItem>
-      </List>
-    </nav>
-  </header>
+const MenuWrapper = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Menu = styled.ul`
+  list-style: none;
+  padding: unset;
+  display: flex;
+`;
+
+const MenuItem = styled.li`
+  margin: 0 8px;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+`;
+
+const socialIcon = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+const menuLists = [
+  {
+    text: "Home",
+    to: "/",
+  },
+  {
+    text: "About",
+    to: "/about",
+  },
+];
+
+const socials = [
+  {
+    icon: Facebook,
+    link: "https://facebook.com/okanjauhary",
+  },
+  {
+    icon: Twitter,
+    link: "https://twitter.com/okanjauhary",
+  },
+  {
+    icon: Linkedin,
+    link: "https://www.linkedin.com/in/sulhanjauhari",
+  },
+  {
+    icon: Github,
+    link: "https://github.com/okanjauhary",
+  },
+];
+
+const Header: React.FC<HeaderProps> = props => (
+  <div
+    className="app-header"
+    css={css`
+      margin-bottom: ${props.showBottomDivider ? "1.5rem" : "10px"};
+    `}>
+    <PageInfo>
+      <h2 className="page-title">{props.title}</h2>
+      {props.subtitle ? (
+        <p className="page-subtitle">{props.subtitle}</p>
+      ) : null}
+    </PageInfo>
+    <MenuWrapper>
+      <Menu>
+        {menuLists.map((item, i) => (
+          <MenuItem key={`menu-left-${i}`}>
+            <Link to={item.to}>{item.text}</Link>
+          </MenuItem>
+        ))}
+        <MenuItem>
+          <a href="/rss.xml">RSS</a>
+        </MenuItem>
+      </Menu>
+      <Menu>
+        {socials.map((item, i) => (
+          <MenuItem key={`menu-right-${i}`} css={socialIcon}>
+            <a href={item.link} rel="noopener noreferrer" target="_blank">
+              <item.icon />
+            </a>
+          </MenuItem>
+        ))}
+      </Menu>
+    </MenuWrapper>
+    {props.showBottomDivider && <SatirLine />}
+  </div>
 );
 
 export default Header;

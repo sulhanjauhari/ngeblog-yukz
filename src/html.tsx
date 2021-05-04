@@ -1,6 +1,7 @@
 import React from "react";
 
-const html = props => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const html: React.FC = (props: any) => {
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -11,8 +12,13 @@ const html = props => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap"
           rel="stylesheet"
         />
       </head>

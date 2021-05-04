@@ -1,8 +1,10 @@
 const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
 const _ = require("lodash");
+const { createFilePath } = require("gatsby-source-filesystem");
+require("dotenv").config();
 
-const POST_PER_PAGE = 4;
+const POST_PER_PAGE = Number(process.env.POST_PER_PAGE || 5);
+const POST_PREFIX_URI = process.env.POST_PREFIX_URI || "";
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -13,7 +15,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: slug,
+      value: POST_PREFIX_URI + slug,
     });
   }
 };
@@ -65,17 +67,17 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // post detail page
   posts.forEach(({ node }, index) => {
-    const prevSlug = index === 0 ? null : posts[index - 1].node.fields.slug;
-    const nextSlug =
-      index + 1 === posts.length ? null : posts[index + 1].node.fields.slug;
+    const prev = index === 0 ? null : getDetailSlug(posts[index - 1].node);
+    const next =
+      index + 1 === posts.length ? null : getDetailSlug(posts[index + 1].node);
 
     createPage({
       path: node.fields.slug,
       component: Post,
       context: {
         slug: node.fields.slug,
-        prevSlug,
-        nextSlug,
+        prev,
+        next,
       },
     });
   });
@@ -94,3 +96,10 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 };
+
+function getDetailSlug(node) {
+  return {
+    slug: node.fields.slug,
+    title: node.frontmatter.title,
+  };
+}

@@ -11,6 +11,7 @@ interface SocialMedia {
 
 interface Author extends SocialMedia {
   id: string;
+  name: string;
   address: string;
 }
 
@@ -36,20 +37,22 @@ interface MarkdownRemark {
   fields: Fields;
 }
 
-interface PageContext {
-  page: number | string;
-  totalPage: number;
-}
-
 interface SiteMetadata extends SocialMedia {
   title: string;
   description: string;
   author: string;
   lang: string;
-  baseUrl: string;
+  siteUrl: string;
 }
 
-interface ComponentProps {
+interface HomepageContext {
+  totalPage: number;
+  limit: number;
+  offset: number;
+  page: number;
+}
+
+interface ComponentProps<C> {
   data: {
     site: {
       siteMetadata: SiteMetadata;
@@ -63,6 +66,8 @@ interface ComponentProps {
             slug: string;
           };
           frontmatter: Frontmatter;
+          excerpt: string;
+          timeToRead: number;
         };
       }>;
     };
@@ -73,4 +78,5 @@ interface ComponentProps {
       };
     };
   };
+  pageContext: C;
 }

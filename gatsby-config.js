@@ -3,15 +3,15 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    title: process.env.GATSBY_SITE_NAME,
-    baseUrl: process.env.GATSBY_BASE_URL,
-    description: `A personal blog created by Sulhan Jauhary 🎪`,
+    title: process.env.SITE_NAME,
+    siteUrl: process.env.SITE_URL,
+    description: `A personal blog that created by Sulhan Jauhary`,
     author: `Sulhan Jauhary`,
     lang: `id`,
-    facebook: `https://www.facebook.com/sulhanjauhary`,
-    twitter: `https://twitter.com/sulhanjauhari`,
+    facebook: `https://www.facebook.com/okanjauhary`,
+    twitter: `https://twitter.com/okanjauhary`,
     linkedin: `https://www.linkedin.com/in/sulhanjauhari`,
-    github: `https://github.com/sulhanjauhari`,
+    github: `https://github.com/okanjauhary`,
   },
   mapping: {
     "MarkdownRemark.frontmatter.author": "AuthorYaml",
@@ -34,8 +34,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Blog " + process.env.GATSBY_SITE_NAME,
-        short_name: process.env.GATSBY_SITE_NAME,
+        name: "Blog " + process.env.SITE_NAME,
+        short_name: process.env.SITE_NAME,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -67,6 +67,67 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require("cssnano")(), require("autoprefixer")],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `red`,
+        showSpinner: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                });
+              });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 10,
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: `/rss.xml`,
+            title: `okanjauhary.space RSS feed`,
+          },
+        ],
       },
     },
   ],
