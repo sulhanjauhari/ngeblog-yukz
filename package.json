@@ -24,7 +24,7 @@
     "autoprefixer": "10.2.5",
     "classnames": "2.3.1",
     "cssnano": "5.0.2",
-    "dotenv": "8.2.0",
+    "dotenv": "8.4.0",
     "gatsby": "3.4.1",
     "gatsby-image": "3.4.0",
     "gatsby-paginate": "1.1.1",
