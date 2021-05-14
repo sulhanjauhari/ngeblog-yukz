@@ -1,0 +1,77 @@
+@mixin create-dot($options) {
+  $area: map-get($options, area);
+  animation-duration: map-get($options, duration);
+  &,
+  &::after {
+    width: $area;
+    height: $area;
+    box-shadow: map-get($options, shadow);
+  }
+}
+
+@function create-shadow($n) {
+  $value: "#{random(2000)}px #{random(2000)}px #eed1c3";
+  @for $i from 2 through $n {
+    $value: "#{$value}, #{random(2000)}px #{random(2000)}px #eed1c3";
+  }
+
+  @return unquote($value);
+}
+
+html[ied-2021] {
+  height: 100%;
+  overflow: hidden;
+
+  body {
+    background-image: radial-gradient(ellipse at top, #1a0f0c 0%, #0b081c 100%);
+  }
+}
+
+.dot-ied-2021 {
+  animation: fall 100s linear infinite;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    top: -2000px;
+  }
+}
+
+.dot-ied-2021-1 {
+  @include create-dot(
+    (
+      area: 1px,
+      shadow: create-shadow(1000),
+      duration: 200s,
+    )
+  );
+}
+
+.dot-ied-2021-2 {
+  @include create-dot(
+    (
+      area: 2px,
+      shadow: create-shadow(200),
+      duration: 100s,
+    )
+  );
+}
+
+.dot-ied-2021-3 {
+  @include create-dot(
+    (
+      area: 3px,
+      shadow: create-shadow(50),
+      duration: 50s,
+    )
+  );
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(2000px);
+  }
+}
