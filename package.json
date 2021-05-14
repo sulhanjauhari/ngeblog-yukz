@@ -2,7 +2,7 @@
   "name": "ngeblog-yukz",
   "private": true,
   "description": "A simple blog with gatsby",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Sulhan Juahary",
   "scripts": {
     "build:dev": "NODE_ENV=development yarn clean:pub && gatsby build",
