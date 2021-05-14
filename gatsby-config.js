@@ -20,7 +20,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("sass"),
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
