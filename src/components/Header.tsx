@@ -70,7 +70,7 @@ const menuLists = [
   },
 ];
 
-const socials = [
+export const socials = [
   {
     icon: Facebook,
     link: "https://facebook.com/okanjauhary",
